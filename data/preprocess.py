@@ -3,8 +3,8 @@ from GEOparse import GEOparse
 from Bio import Entrez
 from tqdm import tqdm
 
-csv_file_path = "dataset.csv"
-new_csv_file_path = "processed_dataset.csv"
+csv_file_path = "data.csv"
+new_csv_file_path = "NEW_processed_data.csv"
 gse_column_name = "gse"
 pmid_column_name = "pmid"
 Entrez.email = "aliparslan@outlook.com"
@@ -19,9 +19,9 @@ def process_geo_dataset(geo_accession: str):
         metadata_dict = {
             "title": metadata["title"][0],
             "summary": metadata["summary"][0],
-            "overall_design": metadata["overall_design"][0],
+            "overall_design": metadata.get("overall_design", [""])[0],
             "type": metadata["type"][0],
-            "contributor": ", ".join(metadata["contributor"])
+            "contributor": ", ".join(metadata.get("contributor", []))
         }
 
     except Exception as e:
