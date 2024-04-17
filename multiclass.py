@@ -151,6 +151,8 @@ embedding_models = [
     # 'microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext',
     # 'allenai/biomed_roberta_base',
     # 'allenai-specter',
+    'allenai/specter2_base',
+    'cambridgeltl/SapBERT-from-PubMedBERT-fulltext'
 ]
 
 for model in embedding_models:
